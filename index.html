@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="shortcut icon" type="x-icon" href="assets/img/Logo/Short-LogoWS.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>William's Personal Website</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Box Icon -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+
+    <!-- Google-Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Audio -->
+    <audio id="song"><source src="assets/music.mp3" /></audio>
+    <script>
+      window.addEventListener("click", () => {
+        document.getElementById("song").play();
+      });
+    </script>
+    <!-- End of Audio -->
+
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+    <!-- Navbar -->
+    <header class="header">
+      <a href="#banner"><img src="assets/img/Logo/Logo-WS.png" class="navbar-logo" /></a>
+      <input type="checkbox" id="check" />
+      <label for="check" class="icons">
+        <i class="bx bx-menu" id="menu-icon"></i>
+        <i class="bx bx-x" id="close-icon"></i>
+      </label>
+      <nav class="navbar">
+        <a class="active" href="#banner">Home</a>
+        <a href="about.html">About</a>
+        <a href="experiences.html">Experiences</a>
+        <a href="contact.html">Contact Me</a>
+      </nav>
+    </header>
+    <!--  End of Navbar -->
+
+    <!-- Banner -->
+    <section class="banner" id="banner">
+      <div class="banner-img">
+        <div class="vapour">
+          <span style="--i: 1"></span>
+          <span style="--i: 3"></span>
+          <span style="--i: 24"></span>
+          <span style="--i: 16"></span>
+          <span style="--i: 5"></span>
+          <span style="--i: 22"></span>
+          <span style="--i: 13"></span>
+          <span style="--i: 20"></span>
+          <span style="--i: 20"></span>
+          <span style="--i: 25"></span>
+          <span style="--i: 6"></span>
+          <span style="--i: 7"></span>
+          <span style="--i: 10"></span>
+          <span style="--i: 8"></span>
+          <span style="--i: 17"></span>
+          <span style="--i: 11"></span>
+          <span style="--i: 12"></span>
+          <span style="--i: 14"></span>
+          <span style="--i: 2"></span>
+          <span style="--i: 9"></span>
+          <span style="--i: 21"></span>
+          <span style="--i: 15"></span>
+          <span style="--i: 23"></span>
+          <span style="--i: 4"></span>
+          <span style="--i: 19"></span>
+        </div>
+        <img src="assets/img/Self-Picture/William-Banner2.png" />
+      </div>
+      <div class="banner-content">
+        <h1>It's me <span>William !</span></h1>
+        <h3 class="text-animation">I'm a <span></span></h3>
+        <p>
+          I am a student at the Kwik Kian Gie School of Business, studying investment, and have been involved in the world of technology for 3 years. I have long liked photography and have an interest in editing using my artistic taste.
+        </p>
+        <div class="social-icons">
+          <a href="https://www.linkedin.com/in/william-susilo-ws810/"><i class="bx bxl-linkedin-square"></i></a>
+          <a href="https://www.instagram.com/william.susilo/"><i class="bx bxl-instagram-alt"></i></a>
+          <a href="https://www.facebook.com/william.susilo.16/"><i class="bx bxl-facebook-square"></i></a>
+          <a href="https://x.com/PyoPyo_10?t=rpfNFfyuDM_bjdRLOWlHNA&s=08"><i class="bx bxl-twitter"></i></a>
+        </div>
+        <!-- <a href="#" class="btn">Download CV</a> -->
+      </div>
+    </section>
+    <!-- End of Banner -->
+
+    <!-- About -->
+    <section class="about" id="about">
+      <div class="about-content">
+        <h2 class="heading">About <span>Me</span></h2>
+        <h3 class="text-animation"><span></span></h3>
+        <p>
+          I am a student majoring in Informatics Engineering who is currently in Semester 4 in the field of Web Technology. Aspires to create W.S Corporation to become the number 1 technology company in the world. Currently I am starting
+          steps to develop myself by learning to invest, pursuing hobbies, increasing my interest in photography, and am trying to deepen my editing knowledge, which I started 3 years ago.
+        </p>
+        <!-- <a href="about.html" class="btn">Read More</a> -->
+      </div>
+      <div class="about-img-home">
+        <img src="assets/img/Illustration/Illustration-1.png" class="illustration-img" alt="" />
+      </div>
+    </section>
+    <!-- End of About -->
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+      <h2 class="heading">Skills</h2>
+      <div class="skills-container">
+        <div class="skills-box" data-aos="fade-down">
+          <h3>UI/UX Design</h3>
+          <img src="assets/img/Skills/UIUX-Design.jpg" class="skills-img" alt="" />
+          <p>"Crafting seamless and visually engaging user experiences, my UI/UX design skills bring digital interfaces to life with creativity and functionality."</p>
+        </div>
+
+        <div class="skills-box" data-aos="fade-down">
+          <h3>Data Science</h3>
+          <img src="assets/img/Skills/Data-Science.jpg" class="skills-img" alt="" />
+          <p>"In the realm of data, my skills in data science illuminate patterns and insights, turning raw information into actionable knowledge."</p>
+        </div>
+
+        <div class="skills-box" data-aos="fade-down">
+          <h3>Mobile Development</h3>
+          <img src="assets/img/Skills/Mobile-Development.jpg" class="skills-img" alt="" />
+          <p>"Navigating the mobile landscape, my mobile development skills translate ideas into responsive and user-friendly applications for a seamless digital experience."</p>
+        </div>
+
+        <div class="skills-box" data-aos="fade-down">
+          <h3>Web Development</h3>
+          <img src="assets/img/Skills/Web-Development.jpg" class="skills-img" alt="" />
+          <p>"Coding the web's dynamic landscapes, my web development skills build interactive and intuitive websites, merging design and functionality seamlessly."</p>
+        </div>
+      </div>
+    </section>
+    <!-- End of Skills -->
+
+    <!-- Projects -->
+    <section class="projects" id="projects">
+      <h2 class="heading">My <span>Photos</span></h2>
+      <div class="slider-wrapper">
+        <div class="slider">
+          <img src="assets/img/Photography/Project-1.jpg" alt="Project-1" />
+          <img src="assets/img/Photography/Project-2.jpg" alt="Project-2" />
+          <img src="assets/img/Photography/Project-3.jpg" alt="Project-3" />
+        </div>
+        <div class="slider-nav">
+          <a hre="#slide-1"></a>
+          <a hre="#slide-2"></a>
+          <a hre="#slide-3"></a>
+        </div>
+      </div>
+    </section>
+    <!-- End of Projects -->
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row-footer">
+          <div class="col-footer">
+            <p class="footer-highlight">
+              Get <br />
+              in Touch
+            </p>
+          </div>
+          <div class="col-footer">
+            <h5>Contact</h5>
+            <p><i></i> Jakarta Utara, Indonesia</p>
+            <p>williamsusilo810@gmail.com</p>
+            <p>+62 882 1155 6028</p>
+          </div>
+          <div class="col-footer">
+            <h5>Tautan</h5>
+            <ul class="list">
+              <li><a href="#banner">Home</a></li>
+              <li><a href="#about">About Me</a></li>
+              <li><a href="#skills">Skills</a></li>
+              <li><a href="#projects">Projects</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/william-susilo-ws810/"><i class="bx bxl-linkedin-square"></i></a>
+        <a href="https://www.instagram.com/william.susilo/"><i class="bx bxl-instagram-alt"></i></a>
+        <a href="https://www.facebook.com/william.susilo.16/"><i class="bx bxl-facebook-square"></i></a>
+        <a href="https://x.com/PyoPyo_10?t=rpfNFfyuDM_bjdRLOWlHNA&s=08"><i class="bx bxl-twitter"></i></a>
+      </div>
+
+      <p class="copyright">Created by William Susilo | © 2024</p>
+    </footer>
+    <!-- End of Footer -->
+  </body>
+</html>
