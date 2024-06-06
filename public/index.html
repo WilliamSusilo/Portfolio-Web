@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>William Susilo - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet" />
+    <style>
+      :root {
+        --deep-blue: hsl(220, 30%, 20%);
+        --jet-black: hsl(0, 0%, 10%);
+        --futuristic-gray: hsl(240, 1%, 17%);
+        --white: hsl(0, 0%, 100%);
+        --futuristic-blue: hsl(200, 80%, 60%);
+      }
+      body {
+        font-family: "Montserrat", "Poppins", sans-serif;
+      }
+      .deep-blue {
+        background-color: var(--deep-blue);
+      }
+      .jet-black {
+        background-color: var(--jet-black);
+      }
+      .futuristic-gray {
+        background-color: var(--futuristic-gray);
+      }
+      .white {
+        background-color: var(--white);
+      }
+      .futuristic-blue {
+        background-color: var(--futuristic-blue);
+      }
+      .white-text {
+        color: var(--white);
+      }
+      .futuristic-blue-text {
+        color: var(--futuristic-blue);
+      }
+      .futuristic-shadow {
+        box-shadow: 0 6px 6px rgba(172, 172, 172, 0.22), 0 10px 20px rgba(0, 0, 0, 0.25);
+      }
+      .shadow-futuristic {
+        filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5)) drop-shadow(0 0 3px rgba(255, 255, 255, 0.2));
+      }
+      .border-futuristic {
+        position: relative;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent);
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+      }
+      .border-futuristic::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 2), transparent);
+        z-index: 1;
+      }
+      .border-form {
+        position: relative;
+        border: 2px solid transparent;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent);
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+      }
+      .border-form::after {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: linear-gradient(to bottom right, rgba(255, 255, 255, 2), transparent);
+        z-index: 1;
+      }
+      .nav-item {
+        position: relative;
+        cursor: pointer;
+      }
+      .nav-item::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 3px;
+        bottom: -4px;
+        left: 0;
+        background-color: hsl(200, 80%, 60%);
+        transition: width 0.3s ease-in-out;
+      }
+      .nav-item:hover::after {
+        width: 50%;
+      }
+      .nav-item.active {
+        font-weight: 700;
+      }
+      .content-container {
+        border: 0.5px solid white;
+        border-radius: 20px;
+        padding: 0;
+        /* margin: 2.5rem 2.5rem 2.5rem 29rem; */
+        margin: 2.5rem 2.5rem 2.5rem 0.5rem;
+      }
+      .sidebar {
+        border-radius: 0 20px;
+      }
+      .icon {
+        width: 24px;
+        height: 24px;
+        margin-right: 8px;
+      }
+      .skill-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 8px;
+      }
+      .blue-button {
+        background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+      }
+      .blue-button:hover {
+        background: linear-gradient(45deg, #1e3a8a, #3b82f6);
+      }
+      .red-button {
+        background: linear-gradient(45deg, #ef4444, #b91c1c);
+      }
+      .red-button:hover {
+        background: linear-gradient(45deg, #b91c1c, #ef4444);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gradient-to-b jet-black text-white font-poppins">
+    <div class="flex flex-col lg:flex-row">
+      <!-- Sidebar/Home -->
+      <div class="futuristic-gray w-1/3 h-full px-4 py-4 my-10 mx-10 flex flex-col items-center justify-center rounded-3xl">
+        <div class="py-5 mb-5 rounded-3xl flex justify-center">
+          <img src="assets/img/Icon/profile-icon.png" alt="William Susilo" class="w-6/12 h-6/12" />
+        </div>
+        <h1 class="text-3xl font-bold mb-5 text-center">William Susilo</h1>
+        <p class="bg-white text-black text-sm p-2 text-center rounded-lg">Web and Mobile Developer</p>
+        <hr class="border-1 border-gray-500 w-full mx-auto my-8" />
+
+        <div class="flex flex-row justify-between items-center w-full mb-5">
+          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+            <img src="assets/img/Icon/location-icon.png" alt="Location Icon" class="w-8 h-8" />
+          </div>
+          <p class="text-sm">Jakarta Utara, Indonesia</p>
+        </div>
+        <div class="flex flex-row justify-between items-center w-full mb-5">
+          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+            <img src="assets/img/Icon/email-icon.png" alt="Email Icon" class="w-8 h-8" />
+          </div>
+          <p class="text-sm"><a href="mailto:williamsusilo2827@gmail.com">williamsusilo2827@gmail.com</a></p>
+        </div>
+        <div class="flex flex-row justify-between items-center w-full mb-5">
+          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+            <img src="assets/img/Icon/phone-icon.png" alt="Phone Icon" class="w-8 h-8" />
+          </div>
+          <p class="text-md">+62 882 1155 6028</p>
+        </div>
+
+        <a href="https://nodeflair.com/resumes/8878" download class="bg-white text-black text-sm px-3 py-3 mt-5 mb-3 rounded-lg">Download My Resume</a>
+
+        <div class="mt-4 flex gap-4">
+          <a href="https://www.linkedin.com/in/william-susilo-ws810/" target="_blank">
+            <img src="assets/img/Icon/linkedin-icon.svg" alt="LinkedIn" class="w-8 h-8" />
+          </a>
+          <a href="https://github.com/WilliamSusilo" target="_blank">
+            <img src="assets/img/Icon/github-icon.svg" alt="GitHub" class="w-8 h-8" />
+          </a>
+          <a href="https://www.instagram.com/william.susilo/" target="_blank">
+            <img src="assets/img/Icon/instagram-icon.svg" alt="Instagram" class="w-8 h-8" />
+          </a>
+        </div>
+      </div>
+      <!-- Main Content -->
+      <div class="lg:w-4/5 content-container border-futuristic">
+        <div class="flex justify-end mb-4">
+          <div class="border sidebar mb-4">
+            <div class="flex justify-end gap-4 p-4">
+              <div class="nav-item" onclick="showSection('about')">About</div>
+              <div class="nav-item" onclick="showSection('resume')">Resume</div>
+              <div class="nav-item" onclick="showSection('achievement')">Achievement and Certification</div>
+              <div class="nav-item" onclick="showSection('portfolio')">Portfolio</div>
+              <div class="nav-item" onclick="showSection('contact')">Contact</div>
+            </div>
+          </div>
+        </div>
+
+        <div id="about" class="px-8">
+          <!-- About Content -->
+          <h2 class="text-2xl font-bold mt-8">About Me</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <p class="text-justify">
+            A passionate and detail-oriented Informatics Engineering student with a relentless drive to enhance personal skills in line with the ever-evolving advancements in technology. I possess strong skills in web and mobile application
+            development, coupled with a commitment to continuous learning and professional development. I am punctual, responsible, innovative, and initiative-driven, with excellent teamwork capabilities and strong communication skills. My
+            multi-talented nature, work ethic, and emotional intelligence enable me to adapt, create, and thrive in diverse environments. I am known for my resilience, consistency, critical thinking, attention to detail, and reliability.
+            Seeking opportunities to apply my expertise in various technological fields, contributing to innovative solutions in the industry.
+          </p>
+          <h3 class="text-xl font-semibold mt-20">What I'm Doing</h3>
+          <div class="flex flex-col md:flex-row mt-4">
+            <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2">
+              <div class="flex flex-col items-center">
+                <img src="assets/img/About-Pic/web-development.png" alt="Web Development" class="w-24 h-24 mb-4" />
+                <p class="text-white">Web Development</p>
+              </div>
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2 mt-4 md:mt-0">
+              <div class="flex flex-col items-center">
+                <img src="assets/img/About-Pic/mobile-development.png" alt="Mobile Development" class="w-24 h-24 mb-4" />
+                <p class="text-white">Mobile Development</p>
+              </div>
+            </div>
+            <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2 mt-4 md:mt-0">
+              <div class="flex flex-col items-center">
+                <img src="assets/img/About-Pic/web-design.png" alt="Web Design" class="w-24 h-24 mb-4" />
+                <p class="text-white">Web Design</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div id="resume" class="px-8" style="display: none">
+          <!-- Resume Content -->
+          <h2 class="text-2xl font-bold mt-8">Resume</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <h3 class="text-xl font-semibold mt-4">Education</h3>
+          <div class="mt-4 flex flex-row gap-4">
+            <div class="relative w-full md:w-1/2">
+              <div class="group">
+                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-72 border-futuristic">
+                  <div class="h-2/4">
+                    <img src="assets/img/Logo Properties/logo-kkg.png" alt="Kwik Kian Gie School of Business" class="w-38 h-32 mx-auto" />
+                  </div>
+                  <div class="p-5 text-center">
+                    <p class="text-xl font-bold text-white">Kwik Kian Gie School of Business</p>
+                    <p class="text-sm italic text-gray-400 mt-2">Hover This to See The Details</p>
+                  </div>
+                </div>
+                <div
+                  class="absolute inset-0 flex flex-wrap justify-center items-center bg-gradient-to-br from-gray-800 to-black border-futuristic-hover opacity-0 group-hover:opacity-100 transition duration-500 transform perspective origin-left rotate-y-180 rounded-3xl"
+                >
+                  <div class="p-5 text-center">
+                    <p class="text-xl font-semibold text-white mb-5">Bachelor of Informatics Engineering</p>
+                    <p class="text-lg text-gray-300">2022 - 2026</p>
+                    <p class="text-sm italic text-gray-400 mt-2">Selected Informatics Engineering Students with The Highest GPAs for The Academic Year 2022-2023.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="relative w-full md:w-1/2">
+              <div class="group">
+                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-72 border-futuristic">
+                  <div class="h-2/4">
+                    <img src="assets/img/Logo Properties/logo-edbb.png" alt="SMA Ekayana Dharma Budhi Bhakti" class="w-28 h-28 mx-auto" />
+                  </div>
+                  <div class="p-5 text-center">
+                    <p class="text-xl font-bold text-white">SMA Ekayana Dharma Budhi Bhakti</p>
+                    <p class="text-sm italic text-gray-400 mt-2">Hover This to See The Details</p>
+                  </div>
+                </div>
+                <div
+                  class="absolute inset-0 flex flex-wrap justify-center items-center bg-gradient-to-br from-gray-800 to-black border-futuristic-hover opacity-0 group-hover:opacity-100 transition duration-500 transform perspective origin-left rotate-y-180 rounded-3xl"
+                >
+                  <div class="p-5 text-center">
+                    <p class="text-xl font-semibold text-white mb-5">Department of Mathematics and Natural Sciences</p>
+                    <p class="text-lg text-gray-300">2019 - 2022</p>
+                    <p class="text-sm italic text-gray-400 mt-2">Awarded The 1st Rank in Grades 10, 11, and 12 for The Academic Years 2019–2020, 2020–2021, and 2021–2022, Over Six Semesters.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold mt-20 mb-5">Experience</h3>
+          <!-- GDSC Section -->
+          <div class="mb-5">
+            <!-- Menambahkan margin bottom untuk memberikan jarak -->
+            <div
+              class="h-32 flex items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic"
+              id="gdsc-section"
+              onclick="toggleDetails('gdsc-details')"
+            >
+              <div class="w-1/3 ml-4 flex justify-center">
+                <img src="assets/img/Logo Properties/logo-gdsc.png" alt="Co-Lead GDSC IBIKKG" class="w-48 h-24" />
+              </div>
+              <div>
+                <h2 class="text-white text-lg font-bold mb-2">Google Developer Student Clubs IBIKKG</h2>
+                <p class="text-gray-200 text-sm">Innovative Leadership in Technology</p>
+              </div>
+            </div>
+            <div class="hidden" id="gdsc-details">
+              <div class="mt-4 bg-gradient-to-br from-gray-800 to-black rounded-xl p-6">
+                <p class="text-white text-md font-bold mb-2">Co-Lead GDSC IBIKKG</p>
+                <hr class="border-2 border-gray-100 w-1/12 my-4" />
+                <!-- Highlighted section -->
+                <p class="text-white text-sm ml-4 pb-3">Enhanced task delegation and project execution.</p>
+                <p class="text-white text-sm ml-4 pb-3">Collaborated with several other GDSCs across Indonesia.</p>
+                <p class="text-white text-sm ml-4 pb-3">Facilitated collaboration with the Informatics Community Student Association.</p>
+                <br />
+                <p class="text-white text-md font-bold mb-2">Event Team Officer GDSC IBIKKG</p>
+                <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+                <!-- Highlighted section -->
+                <p class="text-white text-sm ml-4 pb-3">Developed and managed a community platform for event registrations and information access.</p>
+                <p class="text-white text-sm ml-4 pb-3">Maintained attendance records, backed up participant data, and organized archives.</p>
+                <p class="text-white text-sm ml-4 pb-3">Coordinated event timelines, obtained permissions, and collaborated with academic heads.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Menambahkan margin bottom untuk memberikan jarak -->
+
+          <!-- Informatics Community Section -->
+          <div class="mb-8">
+            <!-- Menambahkan margin bottom untuk memberikan jarak -->
+            <div class="h-32 flex items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic" id="ic-section" onclick="toggleDetails('ic-details')">
+              <div class="w-1/3 ml-4 flex justify-center">
+                <img src="assets/img/Logo Properties/logo-ic.png" alt="Secretary of Informatics Community" class="w-32 h-24" />
+              </div>
+              <div>
+                <h2 class="text-white text-lg font-bold mb-2">Informatics Community</h2>
+                <p class="text-gray-200 text-sm">Empowering Innovations in Informatics</p>
+              </div>
+            </div>
+            <div class="hidden" id="ic-details">
+              <div class="mt-4 bg-gradient-to-br from-gray-800 to-black rounded-xl p-6">
+                <p class="text-white text-md font-bold mb-2">Secretary of Informatics Community</p>
+                <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+                <!-- Highlighted section -->
+                <p class="text-white text-sm ml-4 pb-3">Managed and ensured accurate meeting minutes.</p>
+                <p class="text-white text-sm ml-4 pb-3">Organized documents for efficient workflow and support internal activities.</p>
+                <p class="text-white text-sm ml-4 pb-3">Updated and maintained databases for data integrity and accessibility.</p>
+                <br />
+                <p class="text-white text-md font-bold mb-2">Event Team of Informatics Community</p>
+                <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+                <!-- Highlighted section -->
+                <p class="text-white text-sm ml-4 pb-3">Developed and organized event concepts.</p>
+                <p class="text-white text-sm ml-4 pb-3">Coordinated educational and non-educational activities.</p>
+                <p class="text-white text-sm ml-4 pb-3">Ensured efficiency and seamless collaboration with other divisions.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Menambahkan margin bottom untuk memberikan jarak -->
+
+          <h3 class="text-xl font-semibold mt-4">My Skills</h3>
+          <div class="mt-4">
+            <div class="bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h4 class="text-lg font-semibold mb-4">Programming Skills</h4>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/python.svg" alt="Python" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Python</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/java.svg" alt="Java" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Java</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/javascript.png" alt="JavaScript" class="w-16 h-16 mb-2" />
+                  <p class="text-center">JavaScript</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/php.svg" alt="PHP" class="w-16 h-16 mb-2" />
+                  <p class="text-center">PHP</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/kotlin.png" alt="Kotlin" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Kotlin</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/dart.png" alt="Dart" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Dart</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/csharp.png" alt="C#" class="w-16 h-16 mb-2" />
+                  <p class="text-center">C#</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h4 class="text-lg font-semibold mb-4">Frameworks</h4>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/flutter.svg" alt="Flutter" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Flutter</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/bootstrap.svg" alt="Bootstrap" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Bootstrap</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/tailwind.svg" alt="Tailwind" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Tailwind</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h4 class="text-lg font-semibold mb-4">Tools</h4>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/git.svg" alt="Git" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Git</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/github.svg" alt="GitHub" class="w-16 h-16 mb-2" />
+                  <p class="text-center">GitHub</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/firebase.svg" alt="Firebase" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Firebase</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/mysql.svg" alt="MySQL" class="w-16 h-16 mb-2" />
+                  <p class="text-center">MySQL</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/access.png" alt="Ms. Access" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Ms. Access</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/xampp.png" alt="XAMPP" class="w-16 h-16 mb-2" />
+                  <p class="text-center">XAMPP</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/linux.png" alt="Linux" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Linux</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/vscode.webp" alt="Visual Studio Code" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Visual Studio Code</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/netbeans.png" alt="NetBeans IDE" class="w-16 h-16 mb-2" />
+                  <p class="text-center">NetBeans IDE</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/androidstudio.webp" alt="Android Studio" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Android Studio</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/enterprise.png" alt="Enterprise Architect" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Enterprise Architect</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Logo Applications/figma.png" alt="Figma" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Figma</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h4 class="text-lg font-semibold mb-4">Soft Skills</h4>
+              <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/creativity.png" alt="Creative Thinking" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Creative and Critical Thinking</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/partners.png" alt="Teamwork" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Teamwork</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/initiative.png" alt="Initiative" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Initiative</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/problem-solving.png" alt="Problem Solving" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Problem Solving</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/leadership.png" alt="Leadership" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Leadership</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/adapt.png" alt="Adaptability" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Adaptability</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="assets/img/Resume-Pic/conversation.png" alt="Communication" class="w-16 h-16 mb-2" />
+                  <p class="text-center">Communication</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="achievement" class="px-8" style="display: none">
+          <!-- Achievement and Certification Content -->
+          <h2 class="text-2xl font-bold mt-8">Achievement and Certification</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <div class="mt-4">
+            <!-- Add cards for each certification/achievement here -->
+
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Hackfest 2024 Participant Certificate by Google Developer Student Clubs Indonesia</h3>
+              <img src="assets/img/Achievement-Pic/certif-1.jpg" alt="Hackfest 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                This certificate recognizes participation as a team member representing Codacraft in Hackfest 2024, a hackathon organized by GDSC Indonesia. The event was open to university students across Indonesia, aiming to develop
+                solutions based on the United Nations' 17 Sustainable Development Goals (SDGs). Sponsored by Telkom Indonesia, this certificate signifies active involvement in addressing global challenges through innovative solutions. This
+                experience showcases collaboration, problem-solving skills, and a commitment to social impact.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Solution Challenge 2024 Participant Certificate by Google Developer Student Clubs</h3>
+              <img src="assets/img/Achievement-Pic/certif-2.jpg" alt="Solution Challenge 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                This certificate acknowledges the successful submission of a project for the Solution Challenge 2024, organized by Google Developer Student Clubs with participation from various countries. Under the supervision of Global
+                Program Lead Rachel Francois, this achievement demonstrates the ability to conceptualize, develop, and present solutions to real-world problems using technology. It highlights creativity, technical proficiency, and the
+                ability to contribute meaningfully to global initiatives.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Fundamental Course Completion Certificate by RevoU</h3>
+              <img src="assets/img/Achievement-Pic/certif-3.jpg" alt="Fundamental Course Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                Awarded for completing the Intro to Software Engineering course offered by RevoU on July 21, 2023. This two-week certified online course equipped the recipient with essential knowledge in software engineering fundamentals.
+                By successfully navigating this course, it demonstrates a solid understanding of software development principles, laying a strong foundation for further learning and professional growth.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Javascript Learning Class Completion Certificate by Always Ngoding</h3>
+              <img src="assets/img/Achievement-Pic/certif-4.jpg" alt="Javascript Learning Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                Awarded upon completing the Javascript learning class on August 28, 2023. This certificate, valid until 2026, signifies mastery of Javascript fundamentals and the ability to develop dynamic web applications. It validates the
+                recipient's dedication to continuous learning and proficiency in a widely-used programming language.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">FrontEnd Developer Class Completion Certificate</h3>
+              <img src="assets/img/Achievement-Pic/certif-5.jpg" alt="FrontEnd Developer Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                Granted for successfully completing the FrontEnd Developer class conducted intensively from May 22 to May 26, 2023. This certificate acknowledges proficiency in front-end development technologies, including HTML, CSS, and
+                JavaScript, acquired through structured guidance and hands-on practice. It showcases the recipient's commitment to advancing technical skills and staying abreast of industry trends.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Academic Achievement Award by Kwik Kian Gie School of Business</h3>
+              <img src="assets/img/Achievement-Pic/achieve-1.PNG" alt="Academic Achievement Award Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                This prestigious award recognizes academic excellence as the top-ranking student in the Department of Informatics Engineering for the entire academic year. Bestowed directly by the university's rector on October 30, 2023,
+                this honor highlights outstanding academic performance, dedication to learning, and exemplary leadership within the academic community. It serves as a testament to the recipient's commitment to excellence in education and
+                future contributions to the field of informatics.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Event Committee Member Certificate by Informatics Community, Kwik Kian Gie School of Business</h3>
+              <img src="assets/img/Achievement-Pic/certif-6.jpg" alt="Event Committee Member Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-justify">
+                Recognizes successful completion of duties and responsibilities as a member of the Divis Event Committee in the Informatics Community for the 2022/2023 period. This certificate underscores leadership, organizational skills,
+                and the ability to collaborate effectively within a team to execute events and initiatives.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div id="portfolio" class="px-8" style="display: none">
+          <!-- Portfolio Content -->
+          <h2 class="text-2xl font-bold mt-8">Portfolio</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <div class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Add cards for each project here -->
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/web-1.png" alt="Project 1" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">Piru Application</h3>
+              <a href="https://github.com/WilliamSusilo/Piru-Application" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/web-2.png" alt="Project 2" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">My Personal Webite</h3>
+              <a href="https://github.com/WilliamSusilo/Personal-Website" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/web-3.png" alt="Project 2" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">Student Recording System</h3>
+              <a href="https://github.com/WilliamSusilo/project2" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/py-1.PNG" alt="Project 2" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">Library's Helper App</h3>
+              <a href="https://github.com/WilliamSusilo/Library-s-Helper-App" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/flutter-1.PNG" alt="Project 2" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">planT</h3>
+              <a href="https://github.com/WilliamSusilo/planT" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4">
+              <img src="assets/img/Portfolio-Pic/flutter-2.PNG" alt="Project 2" class="w-full h-32 object-cover rounded-lg" />
+              <h3 class="text-xl font-semibold mt-2">To Do List App</h3>
+              <a href="https://github.com/WilliamSusilo/To-Do-List-App" target="_blank" class="text-blue-400">View on GitHub</a>
+            </div>
+            <!-- Add more cards as needed -->
+          </div>
+        </div>
+        <div id="contact" class="px-8" style="display: none">
+          <!-- Contact Content -->
+          <h2 class="text-2xl font-bold text-white mt-8">Contact</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <form action="https://formsubmit.co/williamsusilo2827@gmail.com" method="POST" class="mt-4">
+            <div class="mb-4">
+              <label for="name" class="block text-md font-medium text-white">Full Name</label>
+              <input type="text" id="name" name="name" class="w-full p-2 mt-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom overflow-hidden border-form text-white" required />
+            </div>
+            <div class="mb-4">
+              <label for="email" class="block text-md font-medium text-white">Email Address</label>
+              <input type="email" id="email" name="email" class="w-full p-2 mt-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom overflow-hidden border-form text-white" required />
+            </div>
+            <div class="mb-4">
+              <label for="number" class="block text-md font-medium text-white">Whatsapp Number</label>
+              <input type="number" id="number" name="number" class="w-full p-2 mt-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom overflow-hidden border-form text-white" required />
+            </div>
+            <div class="mb-4">
+              <label for="subject" class="block text-md font-medium text-white">Subject</label>
+              <input type="text" id="subject" name="subject" class="w-full p-2 mt-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom overflow-hidden border-form text-white" required />
+            </div>
+            <div class="mb-4">
+              <label for="message" class="block text-md font-medium text-white">Your Message</label>
+              <textarea id="message" name="message" class="w-full p-2 mt-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom overflow-hidden border-form text-white" rows="4" required></textarea>
+            </div>
+            <div class="flex gap-5 justify-center">
+              <button type="submit" class="blue-button text-white px-4 py-2 rounded">Send Message</button>
+              <button type="reset" class="red-button text-white px-4 py-2 rounded">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      function showSection(sectionId) {
+        const sections = ["about", "resume", "achievement", "portfolio", "contact"];
+        sections.forEach((section) => {
+          const el = document.getElementById(section);
+          if (section === sectionId) {
+            el.style.display = "block";
+          } else {
+            el.style.display = "none";
+          }
+        });
+      }
+
+      function toggleDetails(sectionId) {
+        var details = document.getElementById(sectionId);
+        details.classList.toggle("hidden");
+      }
+    </script>
+  </body>
+</html>
