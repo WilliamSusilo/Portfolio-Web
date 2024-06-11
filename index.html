@@ -19,6 +19,20 @@
       body {
         font-family: "Montserrat", "Poppins", sans-serif;
       }
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-5px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+      .float-animation {
+        animation: float 5s ease-out infinite;
+      }
       .deep-blue {
         background-color: var(--deep-blue);
       }
@@ -104,12 +118,39 @@
       .nav-item.active {
         font-weight: 700;
       }
+      .hamburger {
+        display: none;
+      }
+      @media (max-width: 700px) {
+        .hamburger {
+          display: block;
+          position: absolute;
+          z-index: 2;
+          top: 0;
+          right: 0;
+        }
+        .navbar {
+          display: none;
+          position: absolute;
+          z-index: 1;
+          top: 0;
+          right: 0;
+          background: hsl(0, 0%, 10%);
+          border: 1px solid white;
+          border-radius: 8% 8% 0 8%;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
+          transition: border 0.3s ease, box-shadow 0.3s ease;
+        }
+        .navbar.open {
+          display: flex;
+          flex-direction: column;
+        }
+      }
       .content-container {
         border: 0.5px solid white;
         border-radius: 20px;
         padding: 0;
-        /* margin: 2.5rem 2.5rem 2.5rem 29rem; */
-        margin: 2.5rem 2.5rem 2.5rem 0.5rem;
+        margin: 2.5rem;
       }
       .sidebar {
         border-radius: 0 20px;
@@ -140,54 +181,76 @@
   </head>
 
   <body class="bg-gradient-to-b jet-black text-white font-poppins">
+    <!-- Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
     <div class="flex flex-col lg:flex-row">
       <!-- Sidebar/Home -->
-      <div class="futuristic-gray w-1/3 h-full px-4 py-4 my-10 mx-10 flex flex-col items-center justify-center rounded-3xl">
-        <div class="py-5 mb-5 rounded-3xl flex justify-center">
-          <img src="public/assets/img/Icon/William.png" alt="William Susilo" class="w-8/12 h-8/12" />
-        </div>
-        <h1 class="text-3xl font-bold mb-5 text-center">William Susilo</h1>
-        <p class="bg-white text-black text-sm p-2 text-center rounded-lg">Web and Mobile Developer</p>
-        <hr class="border-1 border-gray-500 w-full mx-auto my-8" />
-
-        <div class="flex flex-row justify-between items-center w-full mb-5">
-          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
-            <img src="public/assets/img/Icon/location-icon.png" alt="Location Icon" class="w-8 h-8" />
+      <div class="futuristic-gray w-11/12 lg:w-1/3 h-full px-4 py-4 my-10 mx-10 flex flex-col items-center justify-center rounded-3xl">
+        <div class="flex flex-row w-2/3 lg:w-full lg:flex-col justify-around items-center">
+          <img src="public/assets/img/Icon/William.png" alt="William Susilo" class="w-1/4 lg:w-7/12 lg:h-7/12 mb-5" />
+          <div class="">
+            <h1 class="text-3xl font-bold mb-5 text-center">William Susilo</h1>
+            <p class="bg-white text-black text-sm p-2 text-center rounded-lg h-1/2">Web and Mobile Developer</p>
           </div>
-          <p class="text-sm">Jakarta Utara, Indonesia</p>
         </div>
-        <div class="flex flex-row justify-between items-center w-full mb-5">
-          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
-            <img src="public/assets/img/Icon/email-icon.png" alt="Email Icon" class="w-8 h-8" />
+        <hr class="border-1 border-gray-500 w-full mx-auto my-3 lg:my-8" />
+
+        <div class="flex flex-row min-[320px]:flex-col sm:flex-col md:flex-row lg:flex-col justify-between w-full">
+          <div class="flex lg:flex-row justify-around lg:justify-between items-center w-full mb-5">
+            <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+              <img src="public/assets/img/Icon/location-icon.png" alt="Location Icon" class="w-8 h-8" />
+            </div>
+            <p class="text-sm">Jakarta Utara, Indonesia</p>
           </div>
-          <p class="text-sm"><a href="mailto:williamsusilo2827@gmail.com">williamsusilo2827@gmail.com</a></p>
-        </div>
-        <div class="flex flex-row justify-between items-center w-full mb-5">
-          <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
-            <img src="public/assets/img/Icon/phone-icon.png" alt="Phone Icon" class="w-8 h-8" />
+          <div class="flex flex-row justify-evenly lg:justify-between items-center w-full mb-5">
+            <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+              <img src="public/assets/img/Icon/email-icon.png" alt="Email Icon" class="w-8 h-8" />
+            </div>
+            <p class="text-sm"><a href="mailto:williamsusilo2827@gmail.com">williamsusilo2827@gmail.com</a></p>
           </div>
-          <p class="text-md">+62 882 1155 6028</p>
+          <div class="flex flex-row justify-evenly lg:justify-between items-center w-full mb-5">
+            <div class="p-2 futuristic-gray rounded-lg futuristic-shadow">
+              <img src="public/assets/img/Icon/phone-icon.png" alt="Phone Icon" class="w-8 h-8" />
+            </div>
+            <p class="text-md">+62 882 1155 6028</p>
+          </div>
         </div>
 
-        <a href="https://drive.google.com/file/d/1FjuxSlQecussdwCeD8i6bE4E56Nm3fzJ/view?usp=sharing" download class="bg-white text-black text-sm px-3 py-3 mt-5 mb-3 rounded-lg">Download My Resume</a>
+        <div class="flex sm:flex-col md:flex-row lg:flex-col gap-5 justify-around items-center">
+          <a href="https://drive.google.com/file/d/1YpX_TruFrJNW909Cz1AQdSCRyA9C5xsJ/view?usp=sharing" download class="bg-white text-black text-sm px-3 py-3 mt-5 mb-3 rounded-lg">Download My Resume</a>
 
-        <div class="mt-4 flex gap-4">
-          <a href="https://www.linkedin.com/in/william-susilo-ws810/" target="_blank">
-            <img src="public/assets/img/Icon/linkedin-icon.svg" alt="LinkedIn" class="w-8 h-8" />
-          </a>
-          <a href="https://github.com/WilliamSusilo" target="_blank">
-            <img src="public/assets/img/Icon/github-icon.svg" alt="GitHub" class="w-8 h-8" />
-          </a>
-          <a href="https://www.instagram.com/william.susilo/" target="_blank">
-            <img src="public/assets/img/Icon/instagram-icon.svg" alt="Instagram" class="w-8 h-8" />
-          </a>
+          <div class="mt-4 flex gap-4">
+            <a href="https://www.linkedin.com/in/william-susilo-ws810/" target="_blank">
+              <img src="public/assets/img/Icon/linkedin-icon.svg" alt="LinkedIn" class="w-8 h-8" />
+            </a>
+            <a href="https://github.com/WilliamSusilo" target="_blank">
+              <img src="public/assets/img/Icon/github-icon.svg" alt="GitHub" class="w-8 h-8" />
+            </a>
+            <a href="https://www.instagram.com/william.susilo/" target="_blank">
+              <img src="public/assets/img/Icon/instagram-icon.svg" alt="Instagram" class="w-8 h-8" />
+            </a>
+          </div>
         </div>
       </div>
+
       <!-- Main Content -->
       <div class="lg:w-4/5 content-container border-futuristic">
         <div class="flex justify-end mb-4">
           <div class="border sidebar mb-4">
-            <div class="flex justify-end gap-4 p-4">
+            <!-- Hamburger Menu -->
+            <button class="hamburger p-4" onclick="toggleNavbar()">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+            <!-- Navbar -->
+            <div class="flex justify-end gap-4 p-4 navbar">
               <div class="nav-item" onclick="showSection('about')">About</div>
               <div class="nav-item" onclick="showSection('resume')">Resume</div>
               <div class="nav-item" onclick="showSection('achievement')">Achievement and Certification</div>
@@ -216,19 +279,19 @@
           <div class="flex flex-col md:flex-row mt-4 mb-5">
             <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2 md:mt-0">
               <div class="flex flex-col items-center">
-                <img src="public/assets/img/About-Pic/web-development.png" alt="Web Development" class="w-24 h-24 mb-4" />
+                <img src="public/assets/img/About-Pic/web-development.png" alt="Web Development" class="w-24 h-24 mb-4 float-animation" data-aos="zoom-in-down" data-aos-duration="1000" />
                 <p class="text-white">Web Development</p>
               </div>
             </div>
             <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2 mt-4 md:mt-0">
               <div class="flex flex-col items-center">
-                <img src="public/assets/img/About-Pic/mobile-development.png" alt="Mobile Development" class="w-24 h-24 mb-4" />
+                <img src="public/assets/img/About-Pic/mobile-development.png" alt="Mobile Development" class="w-24 h-24 mb-4 float-animation" data-aos="zoom-in-down" data-aos-duration="1000" />
                 <p class="text-white">Mobile Development</p>
               </div>
             </div>
             <div class="flex-1 bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 m-2 mt-4 md:mt-0">
               <div class="flex flex-col items-center">
-                <img src="public/assets/img/About-Pic/web-design.png" alt="Web Design" class="w-24 h-24 mb-4" />
+                <img src="public/assets/img/About-Pic/web-design.png" alt="Web Design" class="w-24 h-24 mb-4 float-animation" data-aos="zoom-in-down" data-aos-duration="1000" />
                 <p class="text-white">Web Design</p>
               </div>
             </div>
@@ -240,12 +303,12 @@
           <hr class="border-2 border-gray-100 w-1/12 my-4" />
 
           <h3 class="text-xl font-semibold mt-4">Education</h3>
-          <div class="mt-4 flex flex-row gap-4">
+          <div class="mt-4 flex flex-col lg:flex-row gap-4">
             <div class="relative w-full md:w-1/2">
               <div class="group">
-                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-72 border-futuristic">
+                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-80 border-futuristic">
                   <div class="h-2/4">
-                    <img src="public/assets/img/Logo Properties/logo-kkg.png" alt="Kwik Kian Gie School of Business" class="w-38 h-32 mx-auto" />
+                    <img src="public/assets/img/Logo Properties/logo-kkg.png" alt="Kwik Kian Gie School of Business" class="w-38 h-28 lg:w-38 lg:h-32 mx-auto mt-5" />
                   </div>
                   <div class="p-5 text-center">
                     <p class="text-xl font-bold text-white">Kwik Kian Gie School of Business</p>
@@ -266,9 +329,9 @@
             </div>
             <div class="relative w-full md:w-1/2">
               <div class="group">
-                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-72 border-futuristic">
+                <div class="flex flex-col justify-center items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden h-80 border-futuristic">
                   <div class="h-2/4">
-                    <img src="public/assets/img/Logo Properties/logo-edbb.png" alt="SMA Ekayana Dharma Budhi Bhakti" class="w-28 h-28 mx-auto" />
+                    <img src="public/assets/img/Logo Properties/logo-edbb.png" alt="SMA Ekayana Dharma Budhi Bhakti" class="w-24 h-24 lg:w-28 lg:h-28 mx-auto mt-5" />
                   </div>
                   <div class="p-5 text-center">
                     <p class="text-xl font-bold text-white">SMA Ekayana Dharma Budhi Bhakti</p>
@@ -293,17 +356,17 @@
           <!-- GDSC Section -->
           <div class="mb-5">
             <div
-              class="h-32 flex items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic"
+              class="h-64 lg:h-32 flex flex-col lg:flex-row items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic"
               id="gdsc-section"
               onclick="toggleDetails('gdsc-details')"
             >
-              <div class="w-1/3 ml-4 flex justify-center">
-                <img src="public/assets/img/Logo Properties/logo-gdsc.png" alt="Co-Lead GDSC IBIKKG" class="w-48 h-24" />
+              <div class="w-full px-4 flex justify-center">
+                <img src="public/assets/img/Logo Properties/logo-gdsc.png" alt="Co-Lead GDSC IBIKKG" class="w-40 h-20 lg:w-48 lg:h-24 mx-auto mt-5" />
               </div>
               <div>
-                <h2 class="text-white text-lg font-bold mb-2">Google Developer Student Clubs IBIKKG</h2>
-                <p class="text-gray-200 text-sm">Innovative Leadership in Technology</p>
-                <p class="text-sm italic text-gray-400 mt-2">Click This to See The Details</p>
+                <h2 class="text-white text-center lg:text-justify text-lg font-bold mb-2">Google Developer Student Clubs IBIKKG</h2>
+                <p class="text-gray-200 text-center lg:text-justify text-sm">Innovative Leadership in Technology</p>
+                <p class="text-sm italic text-center lg:text-justify text-gray-400 mt-2">Click This to See The Details</p>
               </div>
             </div>
             <div class="hidden" id="gdsc-details">
@@ -330,14 +393,18 @@
           <!-- Informatics Community Section -->
           <div class="mb-8">
             <!-- Menambahkan margin bottom untuk memberikan jarak -->
-            <div class="h-32 flex items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic" id="ic-section" onclick="toggleDetails('ic-details')">
-              <div class="w-1/3 ml-4 flex justify-center">
-                <img src="public/assets/img/Logo Properties/logo-ic.png" alt="Secretary of Informatics Community" class="w-32 h-24" />
+            <div
+              class="h-64 lg:h-32 flex flex-col lg:flex-row items-center bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic"
+              id="ic-section"
+              onclick="toggleDetails('ic-details')"
+            >
+              <div class="w-full px-4 flex justify-center">
+                <img src="public/assets/img/Logo Properties/logo-ic.png" alt="Secretary of Informatics Community" class="w-28 h-20 lg:w-32 lg:h-24 mx-auto mt-5" />
               </div>
               <div>
-                <h2 class="text-white text-lg font-bold mb-2">Informatics Community</h2>
-                <p class="text-gray-200 text-sm">Empowering Innovations in Informatics</p>
-                <p class="text-sm italic text-gray-400 mt-2">Click This to See The Details</p>
+                <h2 class="text-white text-center lg:text-justify text-lg font-bold mb-2">Informatics Community</h2>
+                <p class="text-gray-200 text-center lg:text-justify text-sm">Empowering Innovations in Informatics</p>
+                <p class="text-sm italic text-center lg:text-justify text-gray-400 mt-2">Click This to See The Details</p>
               </div>
             </div>
             <div class="hidden" id="ic-details">
@@ -368,31 +435,31 @@
               <h4 class="text-lg font-semibold mb-4">Programming Skills</h4>
               <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/python.svg" alt="Python" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/python.svg" alt="Python" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">Python</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/java.svg" alt="Java" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/java.svg" alt="Java" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">Java</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/javascript.png" alt="JavaScript" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/javascript.png" alt="JavaScript" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">JavaScript</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/php.svg" alt="PHP" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/php.svg" alt="PHP" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">PHP</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/kotlin.png" alt="Kotlin" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/kotlin.png" alt="Kotlin" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">Kotlin</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/dart.png" alt="Dart" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/dart.png" alt="Dart" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">Dart</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/csharp.png" alt="C#" class="w-16 h-16 mb-2" />
+                  <img src="public/assets/img/Logo Applications/csharp.png" alt="C#" class="w-16 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">C#</p>
                 </div>
               </div>
@@ -655,14 +722,15 @@
       </div>
     </div>
     <script>
-      // (function () {
-      //   const menuToggle = document.getElementById("menu-toggle");
-      //   const menu = document.getElementById("menu");
+      function toggleNavbar() {
+        const navbar = document.querySelector(".navbar");
+        navbar.classList.toggle("open");
+      }
 
-      //   menuToggle.addEventListener("click", () => {
-      //     menu.classList.toggle("hidden");
-      //   });
-      // })();
+      function showSection(section) {
+        // Implement the logic to show the section
+        console.log("Showing section:", section);
+      }
 
       function showSection(sectionId) {
         const sections = ["about", "resume", "achievement", "portfolio", "contact"];
