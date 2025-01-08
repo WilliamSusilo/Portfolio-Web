@@ -68,6 +68,14 @@
         background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.05), transparent);
         transition: border 0.3s ease, box-shadow 0.3s ease;
       }
+      .sidebar-border-futuristic {
+        position: relative;
+        border: 2px solid transparent;
+        border-radius: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background: rgba(255, 255, 255, 0.09);
+        transition: border 0.3s ease, box-shadow 0.3s ease;
+      }
       .border-futuristic::after {
         content: "";
         position: absolute;
@@ -152,6 +160,11 @@
         padding: 0;
         margin: 2.5rem;
       }
+      .sidebar-container {
+        border: 0.5px solid white;
+        border-radius: 20px;
+        margin: 2.5rem;
+      }
       .sidebar {
         border-radius: 0 20px;
       }
@@ -189,11 +202,18 @@
       AOS.init();
     </script>
 
+    <!-- Video Background -->
+    <div class="absolute inset-0 overflow-hidden z-[-1]">
+      <video id="video-background" class="w-full h-full object-cover fixed top-0 left-0" autoplay muted playsinline loop>
+        <source src="public/assets/img/Background/night-sky.mp4" type="video/mp4" />
+      </video>
+    </div>
+
     <div class="flex flex-col lg:flex-row">
       <!-- Sidebar/Home -->
-      <div class="futuristic-gray lg:w-1/3 h-full px-4 py-4 my-10 mx-10 flex flex-col items-center justify-center rounded-3xl">
+      <div class="relative sidebar-container sidebar-border-futuristic lg:w-1/3 h-full px-4 py-4 my-10 mx-10 flex flex-col items-center justify-center rounded-3xl">
         <div class="flex flex-col md:flex-row lg:flex-col justify-center items-center w-2/3 gap-10 lg:w-full">
-          <img src="public/assets/img/Icon/William.png" alt="William Susilo" class="sm:w-1/3 lg:w-7/12 lg:h-7/12 mb-5" />
+          <img src="public/assets/img/Icon/Wil-New.png" alt="William Susilo" class="sm:w-1/3 lg:w-7/12 lg:h-7/12" />
           <div class="flex flex-col items-center text-center">
             <h1 class="text-3xl font-bold mb-5">William Susilo</h1>
             <p class="bg-white text-black text-sm p-2 rounded-lg">Software Engineer, Cloud Engineer, Web Developer</p>
@@ -254,7 +274,8 @@
             <div class="flex justify-end gap-4 p-4 navbar">
               <div class="nav-item" onclick="showSection('about')">About</div>
               <div class="nav-item" onclick="showSection('resume')">Resume</div>
-              <div class="nav-item" onclick="showSection('achievement')">Achievement and Certification</div>
+              <div class="nav-item" onclick="showSection('certification')">Certification</div>
+              <div class="nav-item" onclick="showSection('others')">Others</div>
               <div class="nav-item" onclick="showSection('portfolio')">Portfolio</div>
               <div class="nav-item" onclick="showSection('contact')">Contact</div>
             </div>
@@ -494,7 +515,11 @@
                   <p class="text-center">Express</p>
                 </div>
                 <div class="flex flex-col items-center">
-                  <img src="public/assets/img/Logo Applications/hapi.png" alt="Hapi" class="w-20 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
+                  <img src="public/assets/img/Logo Applications/flask.png" alt="Flask" class="w-22 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
+                  <p class="text-center">Flask</p>
+                </div>
+                <div class="flex flex-col items-center">
+                  <img src="public/assets/img/Logo Applications/hapi.png" alt="Hapi" class="w-22 h-16 mb-2" data-aos="zoom-in-down" data-aos-duration="1000" />
                   <p class="text-center">Hapi</p>
                 </div>
               </div>
@@ -602,17 +627,106 @@
           </div>
         </div>
 
-        <div id="achievement" class="px-8" style="display: none">
-          <!-- Achievement and Certification Content -->
-          <h2 class="text-2xl font-bold mt-8">Achievement and Certification</h2>
+        <div id="certification" class="px-8" style="display: none">
+          <!-- Certification Content -->
+          <h2 class="text-2xl font-bold mt-8">Certification of Courses</h2>
+          <hr class="border-2 border-gray-100 w-1/12 my-4" />
+
+          <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+            <h3 class="text-xl font-semibold mb-2">Google Cloud Computing Foundations by Google Cloud</h3>
+            <img src="public/assets/img/Certification-Pic/badge-1.png" alt="Google Cloud Computing Foundations" class="w-full h-auto mb-2 object-cover rounded-lg" />
+            <p class="text-left">
+              Awarded a certification in cloud computing after completing a program designed to develop technical expertise in cloud-based technologies. This program provided an 
+              ideal foundation for career paths such as IT infrastructure management, cloud engineering, and cloud-native application development. Through comprehensive training, 
+              participants gained the skills necessary to design, implement, and manage cloud solutions effectively, preparing them to excel in the rapidly evolving field of cloud computing.
+            </p>
+          </div>
+          <div class="mt-4">
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Learn to Implement Machine Learning with Google Cloud by Dicoding Academy</h3>
+              <img src="public/assets/img/Certification-Pic/certif-pic-1.png" alt="Learn to Implement Machine Learning with Google Cloud by Dicoding Academy" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded the 'Learn to Apply Machine Learning with Google Cloud' certification after successfully completing 40 hours of comprehensive training. The program focused on 
+                mastering TensorFlow for model management, training, and deployment of machine learning models, as well as optimizing data storage. It provided hands-on experience in 
+                emphasizing practical skills in building and deploying cloud-based machine learning applications. The training included case studies and concluded with an exam and a final 
+                project that demonstrated proficiency in applying Google Cloud services to solve real-world AI/ML challenges.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Become a Google Cloud Engineer by Dicoding Academy</h3>
+              <img src="public/assets/img/Certification-Pic/certif-pic-3.png" alt="Become a Google Cloud Engineer by Dicoding Academy" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded the 'Becoming a Google Cloud Engineer' certification after completing 42 hours of in-depth training focused on mastering Google Cloud services for developing cloud-based 
+                solutions. The program covered key topics, including an introduction to cloud computing, computing services, data management, networking, monitoring and logging, and identity and 
+                access management. Participants gained practical skills in deploying and implementing cloud solutions, following industry best practices. The training concluded with an exam and 
+                a final project, demonstrating the ability to effectively utilize Google Cloud services for building and managing cloud-based applications.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Learn to Build Back-End Applications for Beginners with Google Cloud by Dicoding Academy</h3>
+              <img src="public/assets/img/Certification-Pic/certif-pic-4.png" alt="Learn to Build Back-End Applications for Beginners with Google Cloud by Dicoding Academy" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded the 'Learn to Build Back-End Applications for Beginners with Google Cloud' certification after successfully completing 45 hours of training focused on creating simple RESTful 
+                APIs to enhance application functionality. The program covered key topics, including an introduction to back-end development, fundamentals of Node.js, building web services with Node.js, 
+                deploying APIs on Google Compute Engine, and testing RESTful APIs using Postman. The training concluded with a final project to develop a Bookshelf API featuring complete CRUD functionality, 
+                demonstrating proficiency in back-end development and cloud-based API deployment.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Learn Basic JavaScript Programming by Dicoding Academy</h3>
+              <img src="public/assets/img/Certification-Pic/certif-pic-2.png" alt="Learn Basic JavaScript Programming by Dicoding Academy" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded the 'Learn Basic JavaScript Programming' certification upon successfully completing 46 hours of comprehensive training. This program covered foundational JavaScript skills 
+                for web application development using Node.js, including mastery of JavaScript syntax, data structures, functions, and both Object-Oriented and Functional Programming paradigms. It 
+                also emphasized asynchronous processes, modularization, and writing high-quality code. The training culminated in a final exam and project submission, showcasing the ability to apply 
+                JavaScript concepts effectively in practical scenarios.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Learn Basic AI by Dicoding Academy</h3>
+              <img src="public/assets/img/Certification-Pic/certif-pic-5.png" alt="Learn Basic AI by Dicoding Academy" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded the 'Belajar Dasar AI' certification upon successfully completing 10 hours of foundational training program designed for beginners exploring a career in Artificial Intelligence. 
+                The course covered essential AI concepts and their practical applications, including leveraging data for AI development, an introduction to machine learning, and a comprehensive overview 
+                of deep learning. This program provided a strong foundation in understanding and applying AI principles, equipping me with the ability to analyze and implement AI technologies effectively 
+                in various scenarios.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Fundamental Course Completion Certificate by RevoU</h3>
+              <img src="public/assets/img/Certification-Pic/certif-3.jpg" alt="Fundamental Course Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded for completing the Intro to Software Engineering course offered by RevoU on July 21, 2023. This two-week certified online course equipped the recipient with essential knowledge in software engineering fundamentals.
+                By successfully navigating this course, it demonstrates a solid understanding of software development principles, laying a strong foundation for further learning and professional growth.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Javascript Learning Class Completion Certificate by Always Ngoding</h3>
+              <img src="public/assets/img/Certification-Pic/certif-4.jpg" alt="Javascript Learning Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Awarded upon completing the Javascript learning class on August 28, 2023. This certificate, valid until 2026, signifies mastery of Javascript fundamentals and the ability to develop dynamic web applications. It validates the
+                recipient's dedication to continuous learning and proficiency in a widely-used programming language.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">FrontEnd Developer Class Completion Certificate</h3>
+              <img src="public/assets/img/Certification-Pic/certif-5.jpg" alt="FrontEnd Developer Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                Granted for successfully completing the FrontEnd Developer class conducted intensively from May 22 to May 26, 2023. This certificate acknowledges proficiency in front-end development technologies, including HTML, CSS, and
+                JavaScript, acquired through structured guidance and hands-on practice. It showcases the recipient's commitment to advancing technical skills and staying abreast of industry trends.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="others" class="px-8" style="display: none">
+          <h2 class="text-2xl font-bold mt-8">Others</h2>
           <hr class="border-2 border-gray-100 w-1/12 my-4" />
 
           <div class="mt-4">
-            <!-- Add cards for each certification/achievement here -->
-
             <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
               <h3 class="text-xl font-semibold mb-2">Hackfest 2024 Participant Certificate by Google Developer Student Clubs Indonesia</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-1.jpg" alt="Hackfest 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <img src="public/assets/img/Others-Pic/certif-1.jpg" alt="Hackfest 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
               <p class="text-left">
                 This certificate recognizes participation as a team member representing Codacraft in Hackfest 2024, a hackathon organized by GDSC Indonesia. The event was open to university students across Indonesia, aiming to develop
                 solutions based on the United Nations' 17 Sustainable Development Goals (SDGs). Sponsored by Telkom Indonesia, this certificate signifies active involvement in addressing global challenges through innovative solutions. This
@@ -621,7 +735,7 @@
             </div>
             <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
               <h3 class="text-xl font-semibold mb-2">Solution Challenge 2024 Participant Certificate by Google Developer Student Clubs</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-2.jpg" alt="Solution Challenge 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <img src="public/assets/img/Others-Pic/certif-2.jpg" alt="Solution Challenge 2024 Participant Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
               <p class="text-left">
                 This certificate acknowledges the successful submission of a project for the Solution Challenge 2024, organized by Google Developer Student Clubs with participation from various countries. Under the supervision of Global
                 Program Lead Rachel Francois, this achievement demonstrates the ability to conceptualize, develop, and present solutions to real-world problems using technology. It highlights creativity, technical proficiency, and the
@@ -629,32 +743,8 @@
               </p>
             </div>
             <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
-              <h3 class="text-xl font-semibold mb-2">Fundamental Course Completion Certificate by RevoU</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-3.jpg" alt="Fundamental Course Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
-              <p class="text-left">
-                Awarded for completing the Intro to Software Engineering course offered by RevoU on July 21, 2023. This two-week certified online course equipped the recipient with essential knowledge in software engineering fundamentals.
-                By successfully navigating this course, it demonstrates a solid understanding of software development principles, laying a strong foundation for further learning and professional growth.
-              </p>
-            </div>
-            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
-              <h3 class="text-xl font-semibold mb-2">Javascript Learning Class Completion Certificate by Always Ngoding</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-4.jpg" alt="Javascript Learning Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
-              <p class="text-left">
-                Awarded upon completing the Javascript learning class on August 28, 2023. This certificate, valid until 2026, signifies mastery of Javascript fundamentals and the ability to develop dynamic web applications. It validates the
-                recipient's dedication to continuous learning and proficiency in a widely-used programming language.
-              </p>
-            </div>
-            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
-              <h3 class="text-xl font-semibold mb-2">FrontEnd Developer Class Completion Certificate</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-5.jpg" alt="FrontEnd Developer Class Completion Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
-              <p class="text-left">
-                Granted for successfully completing the FrontEnd Developer class conducted intensively from May 22 to May 26, 2023. This certificate acknowledges proficiency in front-end development technologies, including HTML, CSS, and
-                JavaScript, acquired through structured guidance and hands-on practice. It showcases the recipient's commitment to advancing technical skills and staying abreast of industry trends.
-              </p>
-            </div>
-            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
               <h3 class="text-xl font-semibold mb-2">Academic Achievement Award by Kwik Kian Gie School of Business</h3>
-              <img src="public/assets/img/Achievement-Pic/achieve-1.PNG" alt="Academic Achievement Award Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <img src="public/assets/img/Others-Pic/achieve-1.PNG" alt="Academic Achievement Award Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
               <p class="text-left">
                 This prestigious award recognizes academic excellence as the top-ranking student in the Department of Informatics Engineering for the entire academic year. Bestowed directly by the university's rector on October 30, 2023,
                 this honor highlights outstanding academic performance, dedication to learning, and exemplary leadership within the academic community. It serves as a testament to the recipient's commitment to excellence in education and
@@ -662,8 +752,27 @@
               </p>
             </div>
             <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Co-Lead Certificate by Google Developer Student Clubs Kwik Kian Gie School of Business</h3>
+              <img src="public/assets/img/Others-Pic/colead-gdsc.png" alt="Co-Lead Certificate by Google Developer Student Clubs Kwik Kian Gie School of Business" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                As the Co-Lead of Google Developer Student Clubs (GDSC) IBIKKG, I successfully elevated task delegation and project execution by supervising the Events, Curriculum, and Media divisions. I played a key role in coordinating 
+                the preparation for impactful programs, such as the Flutter and Machine Learning Study Jam, while fostering collaboration with the Informatics Community Student Association. These efforts led to a significant improvement 
+                in student engagement and participation, showcasing my ability to lead and drive initiatives effectively.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
+              <h3 class="text-xl font-semibold mb-2">Event Officer Certificate by Google Developer Student Clubs Kwik Kian Gie School of Business</h3>
+              <img src="public/assets/img/Others-Pic/event-gdsc.png" alt="Event Officer Certificate by Google Developer Student Clubs Kwik Kian Gie School of Business" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <p class="text-left">
+                As an Event Officer at GDSC IBIKKG, I was responsible for managing a community platform dedicated to event notifications, registrations, and information access. I streamlined event operations by assigning tasks to team members 
+                based on their profiles and availability, ensuring a smooth workflow. In addition to this, I conceptualized and organized event rundowns, contributing to the overall structure and flow of activities. My versatility allowed me 
+                to take on multiple roles during events, including MC, operator, and timekeeper. This hands-on involvement and strategic planning led to a 10% increase in participant engagement, reflecting the success and efficiency of the 
+                events I contributed to.
+              </p>
+            </div>
+            <div class="card bg-gradient-to-br from-hsl(0, 0%, 10%) via-hsl(0, 0%, 15%) to-hsl(0, 0%, 20%) shadow-custom rounded-lg overflow-hidden border-futuristic p-4 mb-4">
               <h3 class="text-xl font-semibold mb-2">Event Committee Member Certificate by Informatics Community, Kwik Kian Gie School of Business</h3>
-              <img src="public/assets/img/Achievement-Pic/certif-6.jpg" alt="Event Committee Member Certificate" class="w-full h-auto mb-2 object-cover rounded-lg" />
+              <img src="public/assets/img/Others-Pic/certif-6.jpg" alt="Event Committee Member Certificate by Informatics Community, Kwik Kian Gie School of Business" class="w-full h-auto mb-2 object-cover rounded-lg" />
               <p class="text-left">
                 Recognizes successful completion of duties and responsibilities as a member of the Divis Event Committee in the Informatics Community for the 2022/2023 period. This certificate underscores leadership, organizational skills,
                 and the ability to collaborate effectively within a team to execute events and initiatives.
@@ -671,6 +780,7 @@
             </div>
           </div>
         </div>
+
         <div id="portfolio" class="px-8" style="display: none">
           <!-- Portfolio Content -->
           <h2 class="text-2xl font-bold mt-8">Portfolio</h2>
@@ -803,6 +913,10 @@
       </div>
     </div>
     <script>
+      // JavaScript to Slow Down the Video
+      const video = document.getElementById('video-background');
+      video.playbackRate = 0.3; // 
+
       function toggleNavbar() {
         const navbar = document.querySelector(".navbar");
         navbar.classList.toggle("open");
@@ -814,7 +928,7 @@
       }
 
       function showSection(sectionId) {
-        const sections = ["about", "resume", "achievement", "portfolio", "contact"];
+        const sections = ["about", "resume", "certification", "others", "portfolio", "contact"];
         sections.forEach((section) => {
           const el = document.getElementById(section);
           if (section === sectionId) {
